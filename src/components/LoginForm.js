@@ -14,11 +14,15 @@ function LoginForm({ onLogin }) {
       [name]: value
     }));
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin(formData);  // Passing the entire formData object
+  };
 
   return (
     <div className="login-form-container">
-      <form className="login-form">
-        <h2>Login</h2>
+      <form className="login-form" onSubmit={handleSubmit}>
+      <h2>Login</h2>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
